@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+
+	<ui:composition template="/WEB-INF/templates/template.xhtml">
+		<!-- 	<ui:define name="header"> -->
+		<!-- 	    Add your header here or delete to use the default -->
+		<!-- 	</ui:define> -->
+		<ui:define name="content">
+
+			<h:outputScript>
+				dojo.require("dojo.parser");
+				dojo.require("dijit.form.ValidationTextBox");
+				dojo.require("dijit.form.Textarea");
+			    <!-- Recopie des champs de Dojo vers JSF-->
+				function setDojoValue () {					
+					return require(["dojo/dom","dojo/domReady!"], 
+						function (dom) {
+							var projectNameDojo = dom.byId("projectName");
+							var projectNameJSF = projectNameDojo.previousElementSibling;
+							projectNameJSF.value = projectNameDojo.value;
+							var projectDescriptionDojo = dom.byId("projectDescription");
+							var projectDescriptionJSF = projectDescriptionDojo.previousElementSibling;
+							projectDescriptionJSF.value = projectDescriptionDojo.value;
+							return;							
+					});
+				}				
+			</h:outputScript>
+
+			<f:loadBundle basename="com.vincedgy.jsf2project.messages" var="msg" />
+
+			<f:view>
+				<h:form id="myform">
+					<h:panelGrid border="0" columns="2" style="width: 567px; ">
+
+						<h:outputText value="#{msg['project.form.projectName']}" />
+						<h:panelGroup>
+							<h:inputHidden id="projectName"
+								value="#{projectFormBean.projectName}" />
+							<f:verbatim>
+								<input type="text" name="projectName" id="projectName"
+									data-dojo-type="dijit.form.ValidationTextBox" regExp="[\w]+"
+									required="true" invalidMessage="Invalid project name" />
+							</f:verbatim>
+
+						</h:panelGroup>
+
+						<h:outputText value="#{msg['project.form.projectDescription']}" />
+						<h:panelGroup>
+							<h:inputHidden id="projectDescription"
+								value="#{projectFormBean.projectDescription}" />
+							<f:verbatim>
+								<textarea rows="2" cols="15" style="width: 80%"
+									id="projectDescription" data-dojo-type="dijit.form.Textarea">
+								</textarea>
+							</f:verbatim>
+
+						</h:panelGroup>
+					</h:panelGrid>
+
+					<br />
+					<h:commandButton id="button_submit" action="success"
+						value="#{msg['project.form.button'] }"
+						onclick="setDojoValue(); return true;" type="submit"></h:commandButton>
+				</h:form>
+
+			</f:view>
+		</ui:define>
+		<!-- 	<ui:define name="footer"> -->
+		<!-- 	    Add your footer here or delete to use the default -->
+		<!-- 	</ui:define> -->
+	</ui:composition>
+</h:body>
+</html>

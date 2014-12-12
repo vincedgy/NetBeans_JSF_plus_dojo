@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:agence-voyages xmlns:tns="http://jad.orsys.fr/exercice10"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://jad.orsys.fr/exercice10 exercice10.xsd ">
+	<tns:ville codePostal="80021" nom="Amiens" />
+	<tns:ville codePostal="25056" nom="Besancon"/>
+	<tns:ville codePostal="14118" nom="Caen"/>
+	<tns:ville codePostal="21231" nom="Dijon"/>
+	<tns:ville codePostal="91226" nom="Etrechy"/>
+	<tns:ville codePostal="35115" nom="Fougere"/>
+	<tns:ville codePostal="38185" nom="Grenoble"/>
+	<tns:mode-de-Transport identifiant="1" nom="Voiture" />
+	<tns:mode-de-Transport identifiant="2" nom="Avion"/>
+	<tns:mode-de-Transport identifiant="3" nom="Train"/>
+</tns:agence-voyages>

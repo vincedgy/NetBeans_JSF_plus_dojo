@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://jad.orsys.fr/exercice10" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://jad.orsys.fr/exercice10">
+
+    <complexType name="ville">
+    	<attribute name="nom" type="string"></attribute>
+    	<attribute name="codePostal" type="int"></attribute>
+    </complexType>
+
+    <complexType name="mode-de-transport">
+    	<attribute name="nom" type="string"></attribute>
+    	<attribute name="identifiant" type="int"></attribute>
+    </complexType>
+
+    <element name="agence-voyages">
+    	<complexType>
+    		<sequence>
+    			<element name="ville" type="tns:ville"
+    				maxOccurs="unbounded" minOccurs="0">
+    			</element>
+    			<element name="mode-de-Transport" type="tns:mode-de-transport" maxOccurs="unbounded" minOccurs="0"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+</schema>

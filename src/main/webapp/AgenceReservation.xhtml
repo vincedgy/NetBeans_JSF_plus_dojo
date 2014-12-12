@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+	<ui:composition template="/WEB-INF/templates/template.xhtml">
+
+		<!-- 	<ui:define name="header"> -->
+		<!-- 	    Add your header here or delete to use the default -->
+		<!-- 	</ui:define> -->
+		<ui:define name="content">
+			
+			<f:loadBundle basename="com.vincedgy.jsf2project.messages" var="msg" />
+			<f:view>
+				
+				<h:messages globalOnly="true" rendered="true"/>
+				
+				<h:form id="myform">
+					<h4>
+						<h:outputLabel
+							value="#{msg['login.form.welcome'] } #{loginBean.name }"></h:outputLabel>
+					</h4>
+
+					<h:panelGrid border="0" columns="2" style="width: 800px; ">
+						<h:outputText value="#{msg['av.form.town']}" />
+
+						<h:selectManyListbox size="5" style="width: 195px;"
+							value="#{trajetBean.villesChoisies }"
+							converter="#{villeConverter }">
+							<f:selectItems value="#{agenceVoyageBean.villes }" var="ville"
+								itemValue="#{ville.codePostal }" itemLabel="#{ville.nom }" />
+						</h:selectManyListbox>
+
+
+						<h:outputText value="#{msg['av.form.mode']}" />
+						<h:selectManyCheckbox style="width: 116px; height: 107px; " styleClass="checkbox" selectedClass="selected"
+							value="#{trajetBean.modesChoisis }">
+							<br/><f:selectItems value="#{agenceVoyageBean.modesDeTransport }"
+								var="mode" itemValue="#{mode.identifiant }"
+								itemLabel="#{mode.nom }" />
+							
+						</h:selectManyCheckbox>
+
+						<h:outputText value="#{msg['av.form.dateStart']}" />
+						<h:panelGroup>
+							<h:inputText value="#{trajetBean.strDateDepart }" id="dateDepart" />
+							<h:outputText id="dateDepartVerifiee"
+								value="#{trajetBean.verifDateDepart}" />
+							<h:message for="dateDepart" id="dateDepartMsg" rendered="true"/>
+						</h:panelGroup>
+
+						<h:outputText value="#{msg['av.form.dateReturn']}" />
+						<h:panelGroup>
+							<h:inputText value="#{trajetBean.strDateRetour }" id="dateRetour" />
+							<h:outputText id="dateRetourVerifiee"
+								value="#{trajetBean.verifDateRetour}" />
+							<h:message for="dateRetour" id="dateRetourMsg" rendered="true"/>
+						</h:panelGroup>
+
+						<f:facet name="footer">
+							<h:commandButton value="#{msg['av.form.checkDate']}">
+								<f:ajax execute="dateDepart" render="dateDepartVerifiee" />
+								<f:ajax execute="dateRetour" render="dateRetourVerifiee" />
+							</h:commandButton>
+							<br />
+							<h:commandButton value="#{msg['av.form.validate']}"
+								action="#{trajetBean.submit }" />
+						</f:facet>
+
+					</h:panelGrid>
+
+					<br />
+					<h:commandLink action="login">
+						<h:outputText value="Back to login"></h:outputText>
+					</h:commandLink>
+					<br />
+				</h:form>
+			</f:view>
+
+		</ui:define>
+		<!-- 	<ui:define name="footer"> -->
+		<!-- 	    Add your footer here or delete to use the default -->
+		<!-- 	</ui:define> -->
+	</ui:composition>
+</h:body>
+</html>

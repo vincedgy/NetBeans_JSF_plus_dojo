@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+
+	<application>
+		<message-bundle id="messages">com.vincedgy.jsf2project.messages</message-bundle>		
+	</application>
+		
+	<navigation-rule>
+    	<display-name>login</display-name>
+    	<from-view-id>/login.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-outcome>login</from-outcome>
+    		<to-view-id>/AgenceReservation.xhtml</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+    	<display-name>welcome</display-name>
+    	<from-view-id>/AgenceReservation.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-outcome>validate</from-outcome>
+    		<to-view-id>/ValidateReservation.xhtml</to-view-id>
+    	</navigation-case>
+    	<navigation-case>
+    		<from-outcome>form</from-outcome>
+    		<to-view-id>/AgenceReservation.xhtml</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+    	<display-name>ValidateReservation.xhtml</display-name>
+    	<from-view-id>/ValidateReservation.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-outcome>login</from-outcome>
+    		<to-view-id>/login.xhtml</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+    	<display-name>new.xhtml</display-name>
+    	<from-view-id>/new.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-outcome>success</from-outcome>
+    		<to-view-id>/project.xhtml</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+    	<display-name>project.xhtml</display-name>
+    	<from-view-id>/project.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-outcome>newProject</from-outcome>
+    		<to-view-id>/new.xhtml</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+   
+    <validator>
+    	<display-name>Validate Password</display-name>
+    	<validator-id>ValidatePassword</validator-id>
+    	<validator-class>com.vincedgy.jsf2project.validator.ValidatePassword</validator-class>
+    </validator>
+    
+</faces-config>

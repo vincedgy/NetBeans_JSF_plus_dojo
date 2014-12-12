@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+
+	<ui:composition template="/WEB-INF/templates/template.xhtml">
+		<!-- 	<ui:define name="header"> -->
+		<!-- 	    Add your header here or delete to use the default -->
+		<!-- 	</ui:define> -->
+		<ui:define name="content">
+
+			<f:loadBundle basename="com.vincedgy.jsf2project.messages" var="msg" />
+			
+			<f:view>
+				<h:form id="myform">
+					<h:panelGrid border="0" columns="2" style="width: 567px; ">
+					
+					<h:outputText value="#{msg['project.form.projectName']}" />
+					<h:inputText id="projectName" value="#{projectFormBean.projectName}" size="5" style="width: 194px; "/>
+					
+					<h:outputText value="#{msg['project.form.projectDescription']}" />
+					<h:inputTextarea id="projectDescription" value="#{projectFormBean.projectDescription}" rows="2" cols="15" style="height: 185px; width: 193px; "/>
+					
+					</h:panelGrid>
+					
+					<br />
+					<h:commandButton id="button_submit" action="success" value="#{msg['project.form.button'] }" type="submit"></h:commandButton>					
+				</h:form>
+			
+			</f:view>
+		</ui:define>
+		<!-- 	<ui:define name="footer"> -->
+		<!-- 	    Add your footer here or delete to use the default -->
+		<!-- 	</ui:define> -->
+	</ui:composition>
+</h:body>
+</html>

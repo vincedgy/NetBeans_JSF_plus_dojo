@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/schema"
+	xmlns:tns="http://www.example.org/schema" elementFormDefault="qualified">
+	
+	<complexType name="ville">
+		<sequence minOccurs="1" maxOccurs="1">
+			<element name="nom" type="string"></element>
+			<element name="code-postal" type="string"></element>
+		</sequence>
+	</complexType>
+	
+    <complexType name="modes">
+		<sequence minOccurs="1" maxOccurs="unbounded">
+			<element name="mode" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="trajet">
+		<sequence>
+			<element name="ville" type="tns:ville" minOccurs="1" maxOccurs="1"></element>
+			<element name="modes" type="tns:modes" minOccurs="1" maxOccurs="unbounded"></element>								
+		</sequence>
+	</complexType>
+	
+	<complexType name="voyage">
+		<sequence id="trajets" minOccurs="0" maxOccurs="unbounded">
+			<element name="trajet" type="tns:trajet"></element>			
+		</sequence>
+	</complexType>
+
+    <element name="AgenceVoyages" type="tns:voyage"></element>
+</schema>

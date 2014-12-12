@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+<ui:composition template="/WEB-INF/templates/template.xhtml">
+	<!-- 	<ui:define name="header"> -->
+	<!-- 	    Add your header here or delete to use the default -->
+	<!-- 	</ui:define> -->
+	<ui:define name="content">
+				
+		<f:loadBundle basename="com.vincedgy.jsf2project.messages" var="msg" />
+		<f:view>			
+			<h:form id="myform">
+			 	<h3 style="width: 214px;">
+					<h:outputLabel value="#{msg['login.form.title']}" rendered="true"></h:outputLabel>
+				</h3>
+				<h:panelGrid border="0" columns="3">
+					<h:outputLabel value="#{msg['login.form.name'] }" rendered="true"></h:outputLabel>
+					<h:inputText id="userName" value="#{loginBean.name }"></h:inputText>
+					<h:message for="userName" style="color:red"></h:message>
+					<h:outputLabel value="#{msg['login.form.password'] }" rendered="true"></h:outputLabel>
+					<h:inputSecret id="password" value="#{loginBean.password }" required="true">
+						<f:validator for="password" validatorId="ValidatePassword"/>
+					</h:inputSecret>
+					<h:message for="password" style="color:red"></h:message>									
+				</h:panelGrid>				
+				<br />
+				<h:commandButton value="#{msg['login.form.login'] }" action="login"></h:commandButton>
+			</h:form>
+		</f:view>
+	</ui:define>
+	<!-- 	<ui:define name="footer"> -->
+	<!-- 	    Add your footer here or delete to use the default -->
+	<!-- 	</ui:define> -->
+</ui:composition>
+</h:body>
+</html>

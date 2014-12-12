@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:AgenceVoyages xmlns:tns="http://www.example.org/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/schema schema.xsd ">
+  <tns:trajet>
+    <tns:ville>
+      <tns:nom>Paris</tns:nom>
+      <tns:code-postal>75000</tns:code-postal>
+    </tns:ville>
+    <tns:modes>
+      <tns:mode>Voiture</tns:mode>
+      <tns:mode>Train</tns:mode>
+      <tns:mode>Avion</tns:mode>
+    </tns:modes>
+  </tns:trajet>
+  
+  <tns:trajet>
+    <tns:ville>
+      <tns:nom>Fougères</tns:nom>
+      <tns:code-postal>35115</tns:code-postal>
+    </tns:ville>
+    <tns:modes>
+      <tns:mode>Voiture</tns:mode>
+      <tns:mode>Train</tns:mode>
+    </tns:modes>
+  </tns:trajet>
+  
+  <tns:trajet>
+    <tns:ville>
+      <tns:nom>Caen</tns:nom>
+      <tns:code-postal>14118</tns:code-postal>
+    </tns:ville>
+    <tns:modes>
+      <tns:mode>Voiture</tns:mode>
+      <tns:mode>Train</tns:mode>
+    </tns:modes>
+  </tns:trajet>
+  
+</tns:AgenceVoyages>
