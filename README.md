@@ -2,7 +2,7 @@ netbeansFirstJSF
 ================
 
 Conclusion : 
-No means to mariage between SPA (dojo) and JSF (UI from Server).
+No means to mariage SPA framework sush as dojo and JSF2 (UI from Server).
 dojo + REST/XML/SOAP server web service architecture is the only way to do the stuff properlyu.
 
 period 
